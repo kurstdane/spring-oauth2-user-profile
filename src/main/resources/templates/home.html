@@ -1,92 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Welcome - Secure OAuth2 Login</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .login-container {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 100%;
-            max-width: 400px;
-        }
-        h1 {
-            color: #1a1a1a;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
-        p {
-            color: #555;
-            margin-bottom: 30px;
-            font-size: 1.1em;
-        }
-        .provider-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .login-btn {
-            display: block;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s, transform 0.1s;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* Google Specific Styling */
-        .google-btn {
-            background-color: #4285f4;
-            color: white;
-            border: 1px solid #4285f4;
-        }
-        /* GitHub Specific Styling */
-        .github-btn {
-            background-color: #24292e;
-            color: white;
-            border: 1px solid #24292e;
-        }
-    </style>
+    <title>Home</title>
 </head>
 <body>
-    <div class="login-container">
-        <h1>Welcome to the User Profile App</h1>
-        <p>Sign in to continue to your secure profile dashboard.</p>
-        
-        <ul class="provider-list">
-            <li>
-                <!-- Google Login Link -->
-                <a th:href="@{/oauth2/authorization/google}" class="login-btn google-btn">
-                    <span style="margin-right: 8px;">&#x1F512;</span> Login with Google
-                </a>
-            </li>
-            <li>
-                <!-- GitHub Login Link -->
-                <a th:href="@{/oauth2/authorization/github}" class="login-btn github-btn">
-                    <span style="margin-right: 8px;">&#x270E;</span> Login with GitHub
-                </a>
-            </li>
-        </ul>
-    </div>
+    <h1>Welcome</h1>
+    <p><a href="/oauth2/authorization/google">Login with Google</a></p>
+    <p><a href="/oauth2/authorization/github">Login with GitHub</a></p>
 </body>
 </html>

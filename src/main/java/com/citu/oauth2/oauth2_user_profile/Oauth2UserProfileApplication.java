@@ -5,9 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Oauth2UserProfileApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(Oauth2UserProfileApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(Oauth2UserProfileApplication.class, args);
+    }
 }

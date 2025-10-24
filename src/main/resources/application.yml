@@ -1,40 +1,41 @@
 spring:
-  # Database configuration (Use placeholders for security)
   datasource:
     url: jdbc:mysql://localhost:3306/oauth_user_profile?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: YOUR_DB_USERNAME
-    password: YOUR_DB_PASSWORD
+    username: root
+    password: database
 
   jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
 
-  # OAuth2 and Security configuration (Use placeholders for security)
   security:
     oauth2:
       client:
         registration:
           google:
-            client-id: YOUR_GOOGLE_CLIENT_ID_HERE
-            client-secret: YOUR_GOOGLE_CLIENT_SECRET_HERE
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
             scope:
               - openid
               - profile
               - email
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            client-name: Google
 
           github:
-            client-id: YOUR_GITHUB_CLIENT_ID_HERE
-            client-secret: YOUR_GITHUB_CLIENT_SECRET_HERE
+            client-id: ${GITHUB_CLIENT_ID}
+            client-secret: ${GITHUB_CLIENT_SECRET}
             scope:
               - user:email
               - read:user
-
-        provider:
-          google:
-            user-name-attribute: sub
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            client-name: GitHub
 
 server:
   port: 8080
